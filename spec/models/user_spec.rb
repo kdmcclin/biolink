@@ -1,5 +1,10 @@
 require 'rails_helper'
 
-RSpec.describe User, :type => :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+describe User do
+	user = FactoryGirl.build :user
+
+	xit "is invalid without a display name" do
+		user.displayname = nil
+		expect(user).not_to be_valid
+	end
 end

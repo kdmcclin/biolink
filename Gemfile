@@ -34,7 +34,12 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 group :development, :test do
-  gem 'rspec-rails', '~> 3.0.0'
+	gem 'rspec-rails', '~> 3.0.0'
+end
+
+group :test do
+	gem 'factory_girl_rails'
+	gem 'shoulda-matchers', require: false
 end
 
 gem 'foundation-rails'
