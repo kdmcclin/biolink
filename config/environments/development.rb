@@ -20,6 +20,15 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.default :charset => "utf-8"
 
+  config.action_mailer.smtp_settings = {
+  :address   => "smtp.mandrillapp.com",
+  :port      => 587,
+  :authentication => "login",
+  :enable_starttls_auto => true,
+  :user_name => ENV["MANDRILL_USERNAME"],
+  :password  => ENV["MANDRILL_API_KEY"]
+  }
+
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 
