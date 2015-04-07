@@ -2,10 +2,6 @@ class CommentsController < ApplicationController
 	before_action :get_report
 	before_action :authenticate_user!
 
-	# def new
-	# 	@comment = Comment.new
-	# end
-
 	def create
 		@comment = @report.comments.create(comment_params)
 		@comment.user_id = current_user.id
@@ -19,8 +15,18 @@ class CommentsController < ApplicationController
 		#TODO - AJAX this later
 	end
 
+	def edit
+		@comment = @report.comments.find(params[:id])
+	end
+
+	def update
+		@comment.update(comment_params)
+		redirect_to report_path(@report)
+	end
+
 	def destroy
 		@comment = @report.comments.find(params[:id])
+		@comment.destroy
 		redirect_to report_path(@report)
 
 		#TODO - AJAX this later
