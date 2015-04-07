@@ -14,7 +14,7 @@ class ReportsController < ApplicationController
 	def create
 		@report = current_user.reports.new(report_params)
 
-		if report.save
+		if @report.save
 			redirect_to reports_path
 		else
 			flash[:error] = "Report could not be saved"
