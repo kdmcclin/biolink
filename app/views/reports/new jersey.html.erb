@@ -1,0 +1,12 @@
+<div class="row">
+    <div class="large-12 columns">
+    	<a href="/new jersey"><h2 class="stateheader">New Jersey</h2></a>
+    	<% if !@reports.empty? %>
+    		<%= form_tag("/new jersey", :method => "get", id: "search-form") do %>
+	  			<%= text_field_tag :search, params[:search], placeholder: "Search for a Person Within This State" %>
+  				<%= submit_tag "Search", :class => "button radius" %>
+			<% end %>
+		<% end %>
+        <%= render partial: 'report_display' %>
+    </div>
+</div>
