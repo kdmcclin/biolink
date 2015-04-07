@@ -1,0 +1,26 @@
+<div class="row">
+    <div class="large-12 columns">
+    	<h2 class="reportheader">About this report</h2>
+    		<% if @report.hospital != nil %>
+    			<p> Birth location: <%= @report.hospital %></p>	
+    		<% end %>
+    		<% if @report.birthday != nil %>
+    			<p> Child's birthday: <%= @report.birthday.strftime("%m/%d/%Y") %></p>
+    		<% end %>
+    		<p> I am looking for a: <%= @report.generation %></p>
+    		<%= @report.content %><p></p>
+    		<p class="postdate">Posted on: <%= @report.created_at.strftime("%m/%d/%Y") %><br>
+    		<% if @report.updated_at != @report.created_at%>
+    			Updated on: <%= @report.updated_at.strftime("%m/%d/%Y")%> </p>
+    		<% end %>
+    		<% if current_user %>
+        		<% if @report.user == current_user || current_user.admin %>
+            		<ul id="buttons">
+                        <li class="e-button"><%= button_to "Edit", edit_report_path(@report), method: :get, :class => "button radius" %></li>
+            		    <li class="d-button"><%= button_to "Delete", @report, method: :delete, action: 'destroy' , :class => "button radius"%></li>
+                    </ul>
+        		<% end %>
+    		<% end %>
+		<!-- TODO: Add comment creation here -->
+    </div>
+</div>
