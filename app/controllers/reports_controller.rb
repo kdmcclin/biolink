@@ -38,6 +38,13 @@ class ReportController < ApplicationController
 		redirect_to "/#{@report.state.downcase}"
 	end
 
+	us_states.each do |array|
+		state = array.first
+		define_method(state.downcase) do
+			@reports = Report.where(:state => "#{state}").order(updated_at: :desc)
+		end
+	end
+
 	private
 	def get_report
 		@report = Report.find(params[:id])
