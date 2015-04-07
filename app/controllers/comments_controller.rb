@@ -9,7 +9,7 @@ class CommentsController < ApplicationController
 	def create
 		@comment = @report.comments.create(comment_params)
 		@comment.user_id = current_user.id
-		if comment.save
+		if @comment.save
 			redirect_to report_path(@report)
 		else
 			flash[:error] = "Comment could not be saved."
@@ -33,6 +33,6 @@ class CommentsController < ApplicationController
 	end
 
 	def comment_params
-		params.require(:comment).permit([:content])
+		params.require(:comment).permit([:content, :user_id])
 	end
 end
