@@ -1,0 +1,5 @@
+<% @report.comments.each do |comment|%>
+    <p><b>User:</b> <%= comment.user.displayname%></p>
+    <p><b>Comment:</b> <%= comment.content%></p>
+    <hr>
+<% end %>
