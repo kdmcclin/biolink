@@ -5,8 +5,8 @@ class CreateReports < ActiveRecord::Migration
     	t.string 		:state
     	t.string 		:hospital
     	t.datetime 		:birthday
-        t.string        :generation
-    	t.text			:content
+        t.string        :generation, null: false
+    	t.text			:content, null: false
     	t.belongs_to 	:user
 
         t.timestamps
