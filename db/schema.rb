@@ -17,10 +17,12 @@ ActiveRecord::Schema.define(version: 20150325175010) do
   enable_extension "plpgsql"
 
   create_table "comments", force: :cascade do |t|
-    t.string  "title"
-    t.text    "content"
-    t.integer "user_id"
-    t.integer "report_id"
+    t.string   "title"
+    t.text     "content"
+    t.integer  "user_id"
+    t.integer  "report_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "reports", force: :cascade do |t|
@@ -28,8 +30,11 @@ ActiveRecord::Schema.define(version: 20150325175010) do
     t.string   "state"
     t.string   "hospital"
     t.datetime "birthday"
+    t.string   "generation"
     t.text     "content"
     t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: :cascade do |t|
