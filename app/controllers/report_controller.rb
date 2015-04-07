@@ -1,4 +1,4 @@
-	class ReportController < ApplicationController
+class ReportController < ApplicationController
 	
 	before_action :get_report, only [:show, :edit, :update, :destroy]
 	before_action :authenticate_user!, except [:index, :show]
