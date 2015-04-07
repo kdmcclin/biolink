@@ -1,7 +1,7 @@
 FactoryGirl.define do
 	factory :comment do 
+		content "This is a really long and insightful comment"
 		user
 		report
-		content "This is a really long and insightful comment"
 	end
 end

@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 describe User do
-	user = FactoryGirl.create :user
-	user2 = FactoryGirl.create :user
+	user = FactoryGirl.build :user
+	user2 = FactoryGirl.build :user
 
 	it "is valid with all required information" do
 		expect(user).to be_valid
