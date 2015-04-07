@@ -27,6 +27,13 @@
             <p><b>Comment:</b> <%= comment.content%></p>
             <hr>
         <% end %>
+
+        <h3>Add a Comment</h3>
+        <%= form_for([@report, @report.comments.build]) do |f|%>
+            <%= f.label "Please add your comment here" %>
+            <%= f.text_area :content %>
+            <%= f.submit %>
+        <% end %>
 		<!-- TODO: Add comment creation here -->
     </div>
 </div>
