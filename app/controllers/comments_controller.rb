@@ -15,9 +15,9 @@ class CommentsController < ApplicationController
 		#TODO - AJAX this later
 	end
 
-	def edit
-		@comment = @report.comments.find(params[:id])
-	end
+	# def edit
+	# 	@comment = @report.comments.find(params[:id])
+	# end
 
 	def update
 		@comment.update(comment_params)

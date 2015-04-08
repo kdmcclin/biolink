@@ -1,11 +1,9 @@
-<% @report.comments.each do |comment|%>
-    <p><b>User:</b> <%= comment.user.displayname%></p>
-    <p><b>Comment:</b> <%= comment.content%></p>
-    <% if comment.user == current_user || current_user.admin %>
-        <ul id="buttons">
-            <li class="e-button"><%= button_to "Edit", edit_report_comment_path(@report, comment), method: :get, :class => "button radius" %></li>
-        	<li class="d-button"><%= button_to "Delete", [comment.report, comment], method: :delete, action: 'destroy' , :class => "button radius"%></li>
-        </ul>
-    <% end %>
-    <hr>
+<p><b>User:</b> <%= comment.user.displayname%></p>
+<p><b>Comment:</b> <%= comment.content%></p>
+<% if comment.user == current_user || current_user.admin %>
+    <ul id="buttons">
+        <li class="e-button"><%= button_to "Edit", edit_report_comment_path(@report, comment), method: :get, :class => "button radius" %></li>
+    	<li class="d-button"><%= button_to "Delete", [comment.report, comment], method: :delete, action: 'destroy' , :class => "button radius"%></li>
+    </ul>
 <% end %>
+<hr>
