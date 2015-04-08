@@ -3,7 +3,7 @@ class CommentsController < ApplicationController
 	before_action :authenticate_user!
 
 	def create
-		@comment = @report.comments.create(comment_params)
+		@comment = @report.comments.build(comment_params)
 		@comment.user_id = current_user.id
 		if @comment.save
 			redirect_to report_path(@report)
@@ -13,6 +13,20 @@ class CommentsController < ApplicationController
 		end
 
 		#TODO - AJAX this later
+	end
+
+	def edit
+		@comment = @report.comments.find(params[:id])
+	end
+
+	def update
+		@comment = @report.comments.find(params[:id])
+		if @comment.update_attributes(comment_params)
+			redirect_to report_path(@report)
+		else
+			flash[:error] = "Comment could not be saved."
+			render :action => "edit"
+		end
 	end
 
 	def destroy

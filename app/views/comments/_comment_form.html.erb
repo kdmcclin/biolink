@@ -1,5 +1,5 @@
-<%= form_for([@report, @report.comments.build]) do |f|%>
-    <%= f.label "Please add your comment here" %>
+<%= form_for [@report, @comment] do |f|%>
+    <%= f.label "Please write your comment below" %>
     <%= f.text_area :content %>
     <%= f.submit %>
 <% end %>
