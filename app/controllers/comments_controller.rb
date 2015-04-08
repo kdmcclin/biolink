@@ -15,15 +15,6 @@ class CommentsController < ApplicationController
 		#TODO - AJAX this later
 	end
 
-	# def edit
-	# 	@comment = @report.comments.find(params[:id])
-	# end
-
-	def update
-		@comment.update(comment_params)
-		redirect_to report_path(@report)
-	end
-
 	def destroy
 		@comment = @report.comments.find(params[:id])
 		@comment.destroy
