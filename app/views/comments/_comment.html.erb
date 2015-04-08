@@ -1,5 +1,9 @@
 <p><b>User:</b> <%= comment.user.displayname%></p>
 <p><b>Comment:</b> <%= comment.content%></p>
+<p class="postdate">Posted on: <%= comment.created_at.strftime("%m/%d/%Y") %><br>
+<% if comment.updated_at != comment.created_at%>
+	Updated on: <%= comment.updated_at.strftime("%m/%d/%Y")%> </p>
+<% end %>
 <% if comment.user == current_user || current_user.admin %>
     <ul id="buttons">
         <li class="e-button"><%= button_to "Edit", edit_report_comment_path(@report, comment), method: :get, :class => "button radius" %></li>
