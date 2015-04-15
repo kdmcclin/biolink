@@ -16,6 +16,7 @@ Run bundle:
 ```
 bundle install
 ```
+**Note:** If you're using a Windows development environment you may need to alter the tzinfo gem to cover your operating system. This gem is unnecessary for non-Windows users.
 
 Start the server:
 
