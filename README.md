@@ -8,7 +8,7 @@ This app is intended to help adopted children and biological parents reconnect. 
 BioLink is built with a Rails backend. To set up:
 
 ```
-github link to be added later
+git clone https://github.com/kdmcclin/biolink.git
 ```
 
 Run bundle:
