@@ -1,7 +1,14 @@
 <!-- TODO add pagination and put it here-->
 
-<% if @reports.empty? %>
-    <p class="empty_reports">There are no reports for this state.  Please log in and click "Create a Report" if you would like to create one.</p>
+<% if @reports.empty? && params[:search]%>
+    <h2>Results found for keyword(s): <strong><%= @search_term %></strong></h2>
+    <p class="empty_reports">There are no reports matching that query.</p>.
+<% elsif @reports.empty?%>
+    <p class="empty_reports">There are no reports for this state.  Please make sure that you are logged in and click "Create a Report" if you would like to create one.</p>
+<% end %>
+
+<% if !@reports.empty? && params[:search] %>
+    <h2>Results found for keyword(s): <strong><%= @search_term %></strong></h2>
 <% end %>
 
 <% @reports.each do |report| %>
