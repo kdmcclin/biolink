@@ -12,5 +12,8 @@ class Report < ActiveRecord::Base
 			:hospital => 'B',
 			:birthday => 'C'
 		},
-		:using => [:tsearch, :dmetaphone, :trigram])
+		:using => {
+			:tsearch => { :prefix => true },
+			:dmetaphone => {},
+			:trigram => {}})
 end
