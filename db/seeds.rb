@@ -1,6 +1,6 @@
 User.create!([
-  {displayname: "tester2", email: "test2@example.com", encrypted_password: "$2a$10$giXH/QuBRS8m5uppFjUvM.5N3haQ0SRvUnO0zPlHuQ6XjVo2Nqnee", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 3, current_sign_in_at: "2015-04-08 15:49:44", last_sign_in_at: "2015-04-07 21:46:14", current_sign_in_ip: "::1", last_sign_in_ip: "::1", admin: false},
-  {displayname: "tester", email: "test@example.com", encrypted_password: "$2a$10$s9qgeAcJkruXXaiavxOaKuZroWLQqrq4U26mIvk1dFy1BRXR3N0Eu", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 4, current_sign_in_at: "2015-05-09 16:09:37", last_sign_in_at: "2015-04-08 03:04:10", current_sign_in_ip: "::1", last_sign_in_ip: "::1", admin: true}
+  {displayname: "tester", email: "test@example.com", password: "testtest", admin: true},
+  {displayname: "tester2", email: "test2@example.com", password: "testtest", admin: false}
 ])
 Comment.create!([
   {content: "insightful comment", user_id: 1, report_id: 1},
