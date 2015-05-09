@@ -45,3 +45,4 @@ end
 gem 'foundation-rails'
 gem 'devise'
 gem 'figaro'
+gem 'pg_search'
