@@ -1,4 +1,4 @@
-<!-- TODO add pagination and put it here-->
+<%= paginate @reports %>
 
 <% if @reports.empty? && params[:search]%>
     <h2>Results found for keyword(s): <strong><%= @search_term %></strong></h2>
@@ -29,4 +29,4 @@
     <% end %>
 <% end %>
 
-<!-- TODO add pagination and put it here-->
+<%= paginate @reports %>
