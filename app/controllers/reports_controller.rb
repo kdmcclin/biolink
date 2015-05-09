@@ -43,10 +43,10 @@ class ReportsController < ApplicationController
 		state = array.first
 		define_method(state.downcase) do
 			if params[:search]
-				@reports = Report.search_text(params[:search]) params[:page]
+				@reports = Report.search_text(params[:search]).page params[:page]
 				@search_term = params[:search]
 			else
-				@reports = Report.where(:state => "#{state}").order(updated_at: :desc) params[:page]
+				@reports = Report.where(:state => "#{state}").order(updated_at: :desc).page params[:page]
 			end
 		end
 	end
