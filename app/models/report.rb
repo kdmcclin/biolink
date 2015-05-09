@@ -6,7 +6,7 @@ class Report < ActiveRecord::Base
 	validates	:content, 		presence: true
 
 	include PgSearch
-	pg_search_scope(:search_name,
+	pg_search_scope(:search_text,
 		:against => {
 			:content => 'A',
 			:hospital => 'B',
