@@ -42,7 +42,12 @@ class ReportsController < ApplicationController
 	us_states.each do |array|
 		state = array.first
 		define_method(state.downcase) do
-			@reports = Report.where(:state => "#{state}").order(updated_at: :desc)
+			if params[:search]
+				@reports = Report.search_text(params[:search])
+				@search_term = params[:search]
+			else
+				@reports = Report.where(:state => "#{state}").order(updated_at: :desc)
+			end
 		end
 	end
 
