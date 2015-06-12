@@ -1,8 +1,8 @@
 module ControllerHelpers
-    def login_user
-        user = FactoryGirl.create(:user)
-        sign_in user
-    end
+  def login_user
+    user = FactoryGirl.create(:user)
+    sign_in user
+  end
 end
 
 RSpec.configure do |config|
