@@ -13,7 +13,7 @@
  *= require_tree .
  *= require_self
  *= require foundation_and_overrides
-
+	palette http://www.colourlovers.com/palette/1083480/Between_The_Clouds
  */
 body{
 	background-color: #eef0da;
@@ -38,12 +38,6 @@ nav.pagination{
 
 .top-bar-section li:not(.has-form) a:not(.button){
 	background: linear-gradient(#73C8A9, #41a581);
-}
-
-.actions input[type="submit"]{
-	border-radius: 10px;
-	background-color: #E1B866;
-	padding: 10px;
 }
 
 .e-button {
