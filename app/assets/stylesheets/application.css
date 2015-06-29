@@ -15,3 +15,45 @@
  *= require foundation_and_overrides
 
  */
+body{
+	background-color: #eef0da;
+}
+
+a:hover{
+	color: #373B44;
+}
+
+a:visited{
+	color: #73C8A9;
+}
+
+nav.top-bar{
+	background: linear-gradient(#73C8A9, #41a581);
+	box-shadow: 2px 2px 5px #888888;
+}
+
+nav.pagination{
+	text-align: center;
+}
+
+.top-bar-section li:not(.has-form) a:not(.button){
+	background: linear-gradient(#73C8A9, #41a581);
+}
+
+.actions input[type="submit"]{
+	border-radius: 10px;
+	background-color: #E1B866;
+	padding: 10px;
+}
+
+.e-button {
+	list-style-type: none;
+	display: inline-block;
+	margin-left: -17px;
+}
+
+.d-button {
+	list-style-type: none;
+	display: inline-block;
+	padding-left: 30px;
+}
