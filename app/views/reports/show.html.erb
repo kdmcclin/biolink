@@ -22,10 +22,15 @@
         		<% end %>
     		<% end %>
         <h3>Comments</h3>
-        <%= render @report.comments %>
+        <% if @report.comments == []%>
+            <i>This report has no comments.</i>
+        <% else %>
+            <%= render @report.comments %>
+        <% end %>
 
-        <h3>Add a Comment</h3>
-        <%= render "comments/comment_form" %>
-		<!-- TODO: Add comment creation here -->
+        <% if current_user %>
+            <h3 class="subheader">Add a Comment</h3>
+            <%= render "comments/comment_form" %>
+        <% end %>
     </div>
 </div>
