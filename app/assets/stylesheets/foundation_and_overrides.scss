@@ -121,8 +121,11 @@ $jet         : #222222;
 $black       : #000000;
 
 // We use these as default colors throughout
-$primary-color: #008CBA;
-// $secondary-color: #e7e7e7;
+$primary-color: #BD5532;
+$secondary-color: #E1B866;
+$third-color: #73C8A9;
+$grey-color: #DEE1B6;
+$black-color: #373B44;
 // $alert-color: #f04124;
 // $success-color: #43AC6A;
 // $warning-color: #f08a24;
@@ -130,7 +133,7 @@ $primary-color: #008CBA;
 
 // We use these to control various global styles
 // $body-bg: $white;
-// $body-font-color: $jet;
+$body-font-color: $jet;
 $body-font-family: $google-font2;
 // $body-font-weight: $font-weight-normal;
 // $body-font-style: normal;
@@ -203,12 +206,12 @@ $body-font-family: $google-font2;
 // We use these to control header font styles
 $header-font-family: $google-font;
 $header-font-weight: $font-weight-bold;
-// $header-font-style: normal;
-// $header-font-color: $jet;
-// $header-line-height: 1.4;
-// $header-top-margin: .2rem;
-// $header-bottom-margin: .5rem;
-// $header-text-rendering: optimizeLegibility;
+$header-font-style: normal;
+$header-font-color: $primary-color;
+$header-line-height: 1.4;
+$header-top-margin: .2rem;
+$header-bottom-margin: .5rem;
+$header-text-rendering: optimizeLegibility;
 
 // We use these to control header font sizes
 // $h1-font-size: rem-calc(44);
@@ -227,8 +230,8 @@ $header-font-weight: $font-weight-bold;
 // $h6-font-reduction: 0;
 
 // These control how subheaders are styled.
-// $subheader-line-height: 1.4;
-// $subheader-font-color: scale-color($header-font-color, $lightness: 35%);
+$subheader-line-height: 1.4;
+$subheader-font-color: $secondary-color;
 // $subheader-font-weight: $font-weight-normal;
 // $subheader-top-margin: .2rem;
 // $subheader-bottom-margin: .5rem;
@@ -261,8 +264,8 @@ $header-font-weight: $font-weight-bold;
 // We use these to style anchors
 $anchor-text-decoration: none;
 $anchor-text-decoration-hover: none;
-$anchor-font-color: #BD5532;
-$anchor-font-color-hover: scale-color(#BD5532, $lightness: -80%);
+$anchor-font-color: $primary-color;
+$anchor-font-color-hover: $secondary-color;
 
 // We use these to style the <hr> element
 // $hr-border-width: 1px;
@@ -455,8 +458,8 @@ $button-function-factor: -20%;
 // We use these to control button border styles.
 // $button-border-width: 0;
 // $button-border-style: solid;
-$button-bg-color: #E1B866;
-$button-bg-hover: scale-color(#BD5532, $lightness: $button-function-factor);
+$button-bg-color: $secondary-color;
+$button-bg-hover: scale-color($primary-color, $lightness: $button-function-factor);
 // $button-border-color: $button-bg-hover;
 // $secondary-button-bg-hover: scale-color($secondary-color, $lightness: $button-function-factor);
 // $secondary-button-border-color: $secondary-button-bg-hover;
@@ -1384,7 +1387,7 @@ $button-bg-hover: scale-color(#BD5532, $lightness: $button-function-factor);
 // $include-html-top-bar-classes: $include-html-classes;
 
 // Background color for the top bar
-$topbar-bg-color: #73C8A9;
+$topbar-bg-color: $third-color;
 $topbar-bg: $topbar-bg-color;
 
 // Height and margin
@@ -1404,7 +1407,7 @@ $topbar-bg: $topbar-bg-color;
 // $topbar-link-font-size: rem-calc(13);
 // $topbar-link-hover-lightness: -10%; // Darken by 10%
 // $topbar-link-bg: $topbar-bg;
-$topbar-link-bg-hover: #E1B866;
+$topbar-link-bg-hover: $secondary-color;
 // $topbar-link-bg-color-hover: $charcoal;
 // $topbar-link-bg-active: $primary-color;
 // $topbar-link-bg-active-hover: scale-color($primary-color, $lightness: -14%);
@@ -1417,7 +1420,7 @@ $topbar-link-bg-hover: #E1B866;
 // $topbar-button-top: 7px;
 
 // Style the top bar dropdown elements
-$topbar-dropdown-bg: #BD5532;
+$topbar-dropdown-bg: $primary-color;
 // $topbar-dropdown-link-color: $white;
 // $topbar-dropdown-link-color-hover: $topbar-link-color-hover;
 // $topbar-dropdown-link-bg: $oil;
