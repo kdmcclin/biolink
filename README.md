@@ -8,6 +8,10 @@ This app is intended to help adopted children and biological parents reconnect. 
 
 A work in progress version of the app is live at [BioLink](http://biolink.herokuapp.com/).
 
+##Contributing
+
+If you would like to contribute to this app, I welcome suggestions and pull requests.  See installation info below.
+
 ## Installation
 BioLink is built with a Rails backend. To set up:
 
