@@ -2,6 +2,13 @@ require 'rails_helper'
 
 describe ReportsController do
 	
+	# context 'GET #index' do
+	# 	it "assigns @reports" do
+	# 		get :index
+	# 		expect(Reports.count).to eq(2)
+	# 	end
+	# end
+
 	context 'GET #new' do
 		it "blocks unauthenticated access" do
 			get :new
