@@ -2,12 +2,13 @@ require 'rails_helper'
 
 describe ReportsController do
 	
-	# context 'GET #index' do
-	# 	it "assigns @reports" do
-	# 		get :index
-	# 		expect(Reports.count).to eq(2)
-	# 	end
-	# end
+	context 'GET #index' do
+		it "assigns @reports" do
+			report = FactoryGirl.create :report
+			get :index
+			expect(assigns(:reports)).to match_array([report])
+		end
+	end
 
 	context 'GET #new' do
 		it "blocks unauthenticated access" do
