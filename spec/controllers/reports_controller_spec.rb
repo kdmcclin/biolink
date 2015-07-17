@@ -29,7 +29,7 @@ describe ReportsController do
 	end
 
 	context 'POST #create' do
-		context "with valid information" do
+		context "with valid attributes" do
 			it "saves the new report in the database" do
 				expect{FactoryGirl.create :report}.to change(Report, :count).by(1)
 			end
@@ -38,6 +38,18 @@ describe ReportsController do
 				login_user
 				post :create, report: FactoryGirl.attributes_for(:report)
 				expect(response).to redirect_to reports_path
+			end
+		end
+
+		context "with invalid attributes"do
+			it "does not save the new report in the database" do
+				expect{FactoryGirl.build :invalid_report}.to_not change(Report, :count)
+			end
+
+			it "re-renders the new report template" do
+				login_user
+				post :create, report: FactoryGirl.attributes_for(:invalid_report)
+				expect(response).to render_template :new
 			end
 		end
 	end
