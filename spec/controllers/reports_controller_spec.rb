@@ -34,11 +34,11 @@ describe ReportsController do
 				expect{FactoryGirl.create :report}.to change(Report, :count).by(1)
 			end
 
-			# it "redirects to reports#index" do
-			# 	login_user
-			# 	post :create, FactoryGirl.create(:report)
-			# 	expect(response.status).to eq(302)
-			# end
+			it "redirects to reports#index" do
+				login_user
+				post :create, report: FactoryGirl.attributes_for(:report)
+				expect(response).to redirect_to reports_path
+			end
 		end
 	end
 end
