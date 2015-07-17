@@ -8,6 +8,11 @@ describe ReportsController do
 			get :index
 			expect(assigns(:reports)).to match_array([report])
 		end
+
+		it "renders the index template" do
+			get :index
+			expect(response).to render_template :index
+		end
 	end
 
 	context 'GET #new' do
@@ -20,6 +25,20 @@ describe ReportsController do
 			login_user
 			get :new
 			expect(response.status).to eq(200)
+		end
+	end
+
+	context 'POST #create' do
+		context "with valid information" do
+			it "saves the new report in the database" do
+				expect{FactoryGirl.create :report}.to change(Report, :count).by(1)
+			end
+
+			# it "redirects to reports#index" do
+			# 	login_user
+			# 	post :create, FactoryGirl.create(:report)
+			# 	expect(response.status).to eq(302)
+			# end
 		end
 	end
 end
