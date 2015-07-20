@@ -2,7 +2,7 @@
     <div class="large-12 columns">
     	<br>
     	<div class="error">
-    		<%=flash[:error]%>
+    		<%= @report.errors.full_messages if @report.errors.any? %>
     		<br>
   		</div>
     	<%= form_for @report do |f| %>
@@ -14,7 +14,7 @@
     		<p>Do you know the birthday or birthyear of the child?</p>
     		<%= f.date_field :birthday%>
     		<p>Is this report for a parent or a child?</p>
-    		<%= f.select :generation, options_for_select(generation_options),{}, class: 'form-control'%>
+    		<%= f.select :generation, options_for_select(generation_options),{:include_blank => true}, class: 'form-control'%>
     		<p>Please provide as much additional information as you can.</p>
     		<%= f.text_area :content %>
     		<%= f.submit "Submit Report", :class => "button radius" %>
