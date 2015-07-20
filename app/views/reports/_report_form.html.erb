@@ -2,7 +2,11 @@
     <div class="large-12 columns">
     	<br>
     	<div class="error">
-    		<%= @report.errors.full_messages if @report.errors.any? %>
+    		<% if @report.errors.any? %>
+                <% @report.errors.full_messages.each do |message| %>
+                    <%= message %> <br>
+                <% end %>
+            <% end %>
     		<br>
   		</div>
     	<%= form_for @report do |f| %>
