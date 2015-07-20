@@ -11,7 +11,7 @@
     		<%= f.select :state, options_for_select(us_states),{}, class: 'form-control'%>
     		<p>Do you know the name of the hospital?</p>
     		<%= f.text_field :hospital %> <br>
-    		<p>Do you know the birthday of the child?</p>
+    		<p>Do you know the birthday or birthyear of the child?</p>
     		<%= f.date_field :birthday%>
     		<p>Is this report for a parent or a child?</p>
     		<%= f.select :generation, options_for_select(generation_options),{}, class: 'form-control'%>
