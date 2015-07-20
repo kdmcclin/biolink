@@ -15,9 +15,8 @@ class ReportsController < ApplicationController
 		@report = current_user.reports.new(report_params)
 
 		if @report.save
-			redirect_to reports_path
+			redirect_to "/#{@report.state.downcase}"
 		else
-			flash[:error] = "Report could not be saved"
 			render :action => "new"
 		end
 	end
