@@ -3,6 +3,7 @@ FactoryGirl.define do
 		hospital "Sibley Hospital"
 		generation "child"
 		content "This is a really long content post."
+		state "California"
 		user
 
 		factory :invalid_report do
