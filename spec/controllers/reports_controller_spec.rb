@@ -29,15 +29,20 @@ describe ReportsController do
 	end
 
 	context 'POST #create' do
+		it "blocks unauthenticated access" do
+			post :create
+			expect(response).to redirect_to(new_user_session_path)
+		end
+
 		context "with valid attributes" do
 			it "saves the new report in the database" do
 				expect{FactoryGirl.create :report}.to change(Report, :count).by(1)
 			end
 
-			it "redirects to reports#index" do
+			it "redirects to the state report page" do
 				login_user
 				post :create, report: FactoryGirl.attributes_for(:report)
-				expect(response).to redirect_to reports_path
+				expect(response).to redirect_to california_path
 			end
 		end
 
