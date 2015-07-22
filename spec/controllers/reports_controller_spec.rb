@@ -34,6 +34,12 @@ describe ReportsController do
 			expect(response).to redirect_to(new_user_session_path)
 		end
 
+		it "allows logged in users to have access" do
+			login_user
+			post :create, report: FactoryGirl.attributes_for(:report)
+			expect(response).to_not redirect_to(new_user_session_path)
+		end
+
 		context "with valid attributes" do
 			it "saves the new report in the database" do
 				expect{FactoryGirl.create :report}.to change(Report, :count).by(1)
