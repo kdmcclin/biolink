@@ -64,4 +64,18 @@ describe ReportsController do
 			end
 		end
 	end
+
+	context 'GET #show' do
+		it "assigns @report to the correct report" do
+			report = FactoryGirl.create :report
+			get :show, id: report
+			expect(assigns(:report)).to eq report
+		end
+
+		it "renders the show page" do
+			report = FactoryGirl.create :report
+			get :show, id: report
+			expect(response).to render_template :show
+		end
+	end
 end
