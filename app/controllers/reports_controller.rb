@@ -29,8 +29,11 @@ class ReportsController < ApplicationController
 	end
 
 	def update
-		@report.update(report_params)
-		redirect_to report_path(@report)
+		if @report.update(report_params)
+			redirect_to report_path(@report)
+		else
+			render :action => "edit"
+		end
 	end
 
 	def destroy
