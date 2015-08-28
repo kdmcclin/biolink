@@ -78,4 +78,25 @@ describe ReportsController do
 			expect(response).to render_template :show
 		end
 	end
+
+	context 'GET #edit' do
+		it "assigns @report to the correct report" do
+			report = FactoryGirl.create :report
+			get :edit, id: report
+			expect(assigns(:report)).to eq report
+		end
+
+		it "blocks unauthenticated access" do
+			report = FactoryGirl.create :report
+			get :edit, id: report
+			expect(response).to redirect_to(new_user_session_path)
+		end
+
+		it "allows logged in users to edit their reports" do
+			login_user
+			report = FactoryGirl.create :report
+			get :edit, id: report
+			expect(response).to render_template :edit
+		end
+	end
 end
