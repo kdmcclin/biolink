@@ -99,4 +99,54 @@ describe ReportsController do
 			expect(response).to render_template :edit
 		end
 	end
+
+	context 'PATCH #update' do
+
+		it "blocks unauthenticated access" do
+			report = FactoryGirl.create :report
+			patch :update, id: report
+			expect(response).to redirect_to(new_user_session_path)
+		end
+
+		context "with valid attributes" do
+			before :each do
+				login_user
+				@report = FactoryGirl.create :report
+			end
+			
+			it "finds the requested report" do
+				patch :update, id: @report, report: FactoryGirl.attributes_for(:report)
+				expect(assigns(:report)).to eq(@report)
+			end
+			
+			it "changes the report's attributes" do
+				patch :update, id: @report, report: FactoryGirl.attributes_for(:report, hospital: "Mercy Hospital")
+				@report.reload
+				expect(@report.hospital).to eq("Mercy Hospital")
+			end
+
+			it "redirects to the updated report" do
+				patch :update, id: @report, report: FactoryGirl.attributes_for(:report)
+				expect(response).to redirect_to @report
+			end
+		end
+
+		context "with invalid attributes" do
+			before :each do
+				login_user
+				@report = FactoryGirl.create :report
+			end
+
+			it "does not change the report's attributes" do
+				patch :update, id: @report, report: FactoryGirl.attributes_for(:report, generation: nil)
+				@report.reload
+				expect(@report.generation).to eq("child")
+			end
+
+			it "re-renders the edit template" do 
+				patch :update, id: @report, report: FactoryGirl.attributes_for(:invalid_report)
+				expect(response).to render_template :edit
+			end
+		end
+	end
 end
