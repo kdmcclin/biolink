@@ -149,4 +149,20 @@ describe ReportsController do
 			end
 		end
 	end
+
+	context 'DELETE #destroy' do
+		before :each do 
+			login_user
+			@report = FactoryGirl.create :report
+		end
+
+		it "deletes the requested report" do 
+			expect { delete :destroy, id: @report}.to change(Report, :count).by(-1)
+		end
+
+		it "redirects the user to the state report page" do
+			delete :destroy, id: @report
+			expect(response).to redirect_to "/#{@report.state.downcase}"
+		end
+	end
 end
