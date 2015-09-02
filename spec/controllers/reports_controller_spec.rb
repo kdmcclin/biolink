@@ -3,7 +3,7 @@ require 'rails_helper'
 describe ReportsController do
 	
 	context 'GET #index' do
-		it "assigns @reports" do
+		it "assigns reports" do
 			report = FactoryGirl.create :report
 			get :index
 			expect(assigns(:reports)).to match_array([report])
@@ -163,6 +163,26 @@ describe ReportsController do
 		it "redirects the user to the state report page" do
 			delete :destroy, id: @report
 			expect(response).to redirect_to "/#{@report.state.downcase}"
+		end
+	end
+
+	us_states.each do |array|
+		state = array.first
+		context "GET #{state.downcase}" do
+			before :each do 
+	 			login_user
+	 			@report = FactoryGirl.create :report, state: state
+		 	end
+
+		 	it "assigns reports to the correct state collection" do
+		 		get :"#{state.downcase}"
+				expect(assigns(:reports)).to match_array([@report])
+			end
+
+			it "renders the #{state.downcase} template" do
+				get :"#{state.downcase}"
+				expect(response).to render_template :"#{state.downcase}"
+			end
 		end
 	end
 end
