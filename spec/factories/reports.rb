@@ -7,10 +7,10 @@ FactoryGirl.define do
 		user
 
 		factory :invalid_report do
-		hospital "Sibley Hospital"
-		generation nil
-		content "This is a really long content post."
-		user
+			hospital "Sibley Hospital"
+			generation nil
+			content "This is a really long content post."
+			user
 		end
 	end
 end
