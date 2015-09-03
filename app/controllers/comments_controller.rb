@@ -8,8 +8,8 @@ class CommentsController < ApplicationController
 		if @comment.save
 			redirect_to report_path(@report)
 		else
-			flash[:error] = "Comment could not be saved."
-			render :action => "new"
+			flash[:notice] = "Comment could not be saved."
+			redirect_to @report
 		end
 
 		#TODO - AJAX this later
@@ -24,7 +24,7 @@ class CommentsController < ApplicationController
 		if @comment.update_attributes(comment_params)
 			redirect_to report_path(@report)
 		else
-			flash[:error] = "Comment could not be saved."
+			flash[:notice] = "Comment could not be saved."
 			render :action => "edit"
 		end
 	end
