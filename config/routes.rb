@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   root 'root#index'
 
   resources :reports do
-  	resources :comments
+  	resources :comments, only: [:create, :edit, :update, :destroy]
   end
 
   us_states.each do |array|
