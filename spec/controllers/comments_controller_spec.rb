@@ -44,4 +44,29 @@ describe CommentsController do
 			end
 		end
 	end
+
+	context 'GET #edit' do
+		it "assigns @comment to the correct comment" do
+			login_user
+			report = FactoryGirl.create :report
+			comment = FactoryGirl.create :comment, report: report
+			get :edit, id: comment, report_id: report.id
+			expect(assigns(:comment)).to eq comment
+		end
+
+		it "blocks unauthenticated access" do
+			report = FactoryGirl.create :report
+			comment = FactoryGirl.create :comment, report: report
+			get :edit, id: report, report_id: report.id
+			expect(response).to redirect_to(new_user_session_path)
+		end
+
+		it "allows logged in users to edit their comments" do
+			login_user
+			report = FactoryGirl.create :report
+			comment = FactoryGirl.create :comment, report: report
+			get :edit, id: comment, report_id: report.id
+			expect(response).to render_template :edit
+		end
+	end
 end
